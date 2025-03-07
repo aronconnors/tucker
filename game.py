@@ -3,6 +3,7 @@ import random
 from enum import Enum
 from collections import namedtuple
 import numpy as np
+import math
 
 pygame.init()
 font = pygame.font.Font('arial.ttf', 25)
@@ -42,6 +43,9 @@ class SnakeGameAI:
         pygame.display.set_caption('Snake')
         self.clock = pygame.time.Clock()
         self.reset()
+
+    def euclidean_distance(self, p1, p2):
+        return math.sqrt((p2.x - p1.x) ** 2 + (p2.y - p1.y) ** 2)
     
     def reset(self):
         # init game state
