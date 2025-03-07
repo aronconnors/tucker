@@ -91,6 +91,10 @@ class SnakeGameAI:
             reward = 10
             self._place_food()
         else:
+            if self.euclidean_distance(self.head, self.food) < self.euclidean_distance(self.snake[1], self.food):
+                reward = 0.1
+            else:
+                reward = -0.1
             self.snake.pop()
         
         # 5. update ui and clock
